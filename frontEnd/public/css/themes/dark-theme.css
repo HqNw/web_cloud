@@ -1,0 +1,27 @@
+.dark-theme {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a29bfe;
+  --accent-color: #fd79a8;
+  --text-color: #f5f6fa;
+  --bg-color: #1e272e;
+  --card-bg: #2f3640;
+  --shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.dark-theme .smart-nav {
+  background: rgba(30, 39, 46, 0.9);
+}
+
+.dark-theme .hero-overlay {
+  background: linear-gradient(135deg, rgba(30, 39, 46, 0.8), rgba(47, 54, 64, 0.8));
+}
+
+.dark-theme .product-card {
+  border: 1px solid #3d3d3d;
+}
+
+.dark-theme .search-bar input {
+  background: #2f3640;
+  color: white;
+  border: 1px solid #3d3d3d;
+}
