@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:6
-    container_name: mongodb
+    container_name: mongodb_darag
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
@@ -16,6 +16,7 @@ services:
       - ecommerce-net
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongosh -u ${MONGO_ROOT_USER} -p ${MONGO_ROOT_PASSWORD} --quiet || exit 1
+      start_interval: 1s
       interval: 30s
       timeout: 10s
       retries: 3
@@ -25,16 +26,16 @@ services:
     container_name: backend
     environment:
       NODE_ENV: development
-      MONGO_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb:27017/${MONGO_DB_NAME}?authSource=admin
+      MONGO_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb_darag:27017/${MONGO_DB_NAME}?authSource=admin
       JWT_SECRET: ${JWT_SECRET}
     ports:
       - "5000:5000"
     depends_on:
       mongodb:
-        condition: service_healthy
+        # condition: service_healthy
+        condition: service_started
     networks:
       - ecommerce-net
-    restart: unless-stopped
 
   frontend:
     build: ./frontend
@@ -45,7 +46,6 @@ services:
       - backend
     networks:
       - ecommerce-net
-    restart: unless-stopped
 
 volumes:
   mongodb_data:
