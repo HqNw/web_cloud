@@ -1,21 +1,3 @@
-# Stage 1: Build the React application
-FROM node:18-alpine AS build
-
-WORKDIR /app
-
-# Copy package files first for better layer caching
-COPY package*.json ./
-
-# Install dependencies (including dev dependencies)
-RUN npm install
-
-# Copy source code
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Stage 2: Serve the app with Nginx
 FROM nginx:1.25.3-alpine-slim
 
 # Create necessary directories and set permissions before copying files
@@ -27,22 +9,27 @@ RUN mkdir -p /var/run/nginx && \
     chown -R nginx:nginx /var/cache/nginx && \
     chown -R nginx:nginx /var/log/nginx
 
+# Create necessary directories with proper permissions
+RUN mkdir -p /etc/nginx/ssl /etc/nginx/conf.d /app/uploads && \
+    chmod -R 755 /etc/nginx/ssl /etc/nginx/conf.d /app/uploads
+
 # Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Fix permissions for nginx config
-RUN chown nginx:nginx /etc/nginx/conf.d/default.conf && \
-    chmod 644 /etc/nginx/conf.d/default.conf
+# Remove default nginx static assets
+RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
 
-# Copy built files from build stage
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy your entire application files
+COPY ./src /usr/share/nginx/html/
+
+# Ensure index.html exists and has proper permissions
+RUN if [ ! -f /usr/share/nginx/html/index.html ]; then \
+        echo "<html><body><h1>Welcome</h1></body></html>" > /usr/share/nginx/html/index.html; \
+    fi
 
 # Set permissions for static files
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chmod -R 755 /usr/share/nginx/html
-
-# Run as non-root user
-USER nginx
 
 # Expose port 80 (HTTP)
 EXPOSE 80

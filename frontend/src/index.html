@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر الكتب الإلكتروني</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/beautiful-theme.css">
+    <!-- Google Fonts - Tajawal (Arabic) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Updated Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -14,20 +21,20 @@
                 <h1>متجر الكتب</h1>
             </div>
             <nav>
-                <ul>
-                    <li><a href="#" class="active">الرئيسية</a></li>
-                    <li><a href="#products">المنتجات</a></li>
-                    <li><a href="#categories">التصنيفات</a></li>
-                    <li><a href="#about">من نحن</a></li>
+                <ul class="menu">
+                    <li><a href="#" class="active fancy-link">الرئيسية</a></li>
+                    <li><a href="#products" class="fancy-link">المنتجات</a></li>
+                    <li><a href="#categories" class="fancy-link">التصنيفات</a></li>
+                    <li><a href="#about" class="fancy-link">من نحن</a></li>
                 </ul>
             </nav>
             <div class="header-icons">
                 <div class="search-box">
-                    <input type="text" placeholder="ابحث عن كتاب...">
-                    <button><i class="fas fa-search"></i></button>
+                    <input type="text" class="form-control" placeholder="ابحث عن كتاب...">
+                    <button class="btn-icon"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="cart-icon">
-                    <a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="cart.html" id="cart-btn"><i class="fas fa-shopping-cart"></i></a>
                     <span class="cart-count">0</span>
                 </div>
                 <div class="user-icon">
@@ -42,53 +49,76 @@
 
     <div class="hero-section">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content fade-in">
                 <h2>أفضل الكتب بين يديك</h2>
                 <p>اكتشف مجموعة واسعة من الكتب في مختلف المجالات بأسعار تنافسية</p>
-                <a href="#product" class="btn">تسوق الآن</a>
+                <a href="#products" class="btn">تسوق الآن</a>
             </div>
         </div>
     </div>
 
     <section id="featured-products" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>الكتب المميزة</h2>
                 <p>اكتشف أفضل الكتب مبيعاً</p>
             </div>
             <div class="products-grid" id="featured-products-grid">
                 <!-- سيتم تحميل المنتجات هنا عبر جافاسكريبت -->
-                <div class="loading">جاري تحميل المنتجات...</div>
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>جاري تحميل المنتجات...</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="categories" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>تصفح حسب التصنيف</h2>
                 <p>اختر من بين مجموعة متنوعة من التصنيفات</p>
             </div>
             <div class="categories-grid">
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/300x200" alt="كتب علمية">
-                    <h3>كتب علمية</h3>
-                    <a href="#" class="btn-small">عرض الكل</a>
+                <div class="card fade-in delay-1">
+                    <div class="card-image zoom-effect">
+                        <img src="https://via.placeholder.com/300x200" alt="كتب علمية">
+                    </div>
+                    <div class="card-body">
+                        <h3>كتب علمية</h3>
+                        <p>استكشف أحدث الكتب العلمية في مختلف المجالات</p>
+                        <a href="#" class="btn-outline">عرض الكل</a>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/300x200" alt="روايات">
-                    <h3>روايات</h3>
-                    <a href="#" class="btn-small">عرض الكل</a>
+                <div class="card fade-in delay-2">
+                    <div class="card-image zoom-effect">
+                        <img src="https://via.placeholder.com/300x200" alt="روايات">
+                    </div>
+                    <div class="card-body">
+                        <h3>روايات</h3>
+                        <p>اكتشف عالماً من الخيال مع أفضل الروايات العربية والعالمية</p>
+                        <a href="#" class="btn-outline">عرض الكل</a>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/300x200" alt="كتب أطفال">
-                    <h3>كتب أطفال</h3>
-                    <a href="#" class="btn-small">عرض الكل</a>
+                <div class="card fade-in delay-3">
+                    <div class="card-image zoom-effect">
+                        <img src="https://via.placeholder.com/300x200" alt="كتب أطفال">
+                    </div>
+                    <div class="card-body">
+                        <h3>كتب أطفال</h3>
+                        <p>كتب تعليمية وترفيهية للأطفال من مختلف الأعمار</p>
+                        <a href="#" class="btn-outline">عرض الكل</a>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="https://via.placeholder.com/300x200" alt="تطوير الذات">
-                    <h3>تطوير الذات</h3>
-                    <a href="#" class="btn-small">عرض الكل</a>
+                <div class="card fade-in delay-4">
+                    <div class="card-image zoom-effect">
+                        <img src="https://via.placeholder.com/300x200" alt="تطوير الذات">
+                    </div>
+                    <div class="card-body">
+                        <h3>تطوير الذات</h3>
+                        <p>كتب تساعدك على تطوير مهاراتك وتحقيق أهدافك</p>
+                        <a href="#" class="btn-outline">عرض الكل</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,14 +126,15 @@
 
     <section id="products" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>جميع الكتب</h2>
                 <p>تصفح مجموعتنا الكاملة من الكتب</p>
             </div>
-            <div class="filter-bar">
+            
+            <div class="filter-bar card fade-in">
                 <div class="filter-group">
                     <label for="category-filter">التصنيف:</label>
-                    <select id="category-filter">
+                    <select id="category-filter" class="form-control">
                         <option value="">جميع التصنيفات</option>
                         <option value="science">كتب علمية</option>
                         <option value="novels">روايات</option>
@@ -113,7 +144,7 @@
                 </div>
                 <div class="filter-group">
                     <label for="sort-by">ترتيب حسب:</label>
-                    <select id="sort-by">
+                    <select id="sort-by" class="form-control">
                         <option value="price-asc">السعر: من الأقل إلى الأعلى</option>
                         <option value="price-desc">السعر: من الأعلى إلى الأقل</option>
                         <option value="name-asc">الاسم: أ-ي</option>
@@ -123,23 +154,28 @@
             </div>
             <div class="products-grid" id="all-products-grid">
                 <!-- سيتم تحميل المنتجات هنا عبر جافاسكريبت -->
-                <div class="loading">جاري تحميل المنتجات...</div>
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>جاري تحميل المنتجات...</p>
+                </div>
             </div>
-            <div class="pagination">
-                <button id="prev-page" disabled><i class="fas fa-chevron-right"></i> السابق</button>
+            <div class="pagination fade-in">
+                <button id="prev-page" disabled class="btn-outline"><i class="fas fa-chevron-right"></i> السابق</button>
                 <span id="page-info">صفحة 1 من 1</span>
-                <button id="next-page">التالي <i class="fas fa-chevron-left"></i></button>
+                <button id="next-page" class="btn-outline">التالي <i class="fas fa-chevron-left"></i></button>
             </div>
         </div>
     </section>
 
     <section id="newsletter" class="section">
         <div class="container">
-            <div class="newsletter-content">
+            <div class="newsletter-content card fade-in">
                 <h2>اشترك في نشرتنا البريدية</h2>
                 <p>احصل على تحديثات حول الكتب الجديدة والعروض الخاصة</p>
                 <form id="newsletter-form">
-                    <input type="email" placeholder="بريدك الإلكتروني" required>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="بريدك الإلكتروني" required>
+                    </div>
                     <button type="submit" class="btn">اشترك</button>
                 </form>
             </div>
@@ -149,7 +185,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
+                <div class="footer-column fade-in delay-1">
                     <h3>متجر الكتب</h3>
                     <p>وجهتك الأولى للحصول على أفضل الكتب بأسعار مناسبة.</p>
                     <div class="social-icons">
@@ -159,27 +195,27 @@
                         <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column fade-in delay-2">
                     <h3>روابط سريعة</h3>
                     <ul>
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#products">المنتجات</a></li>
-                        <li><a href="#categories">التصنيفات</a></li>
-                        <li><a href="#about">من نحن</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
+                        <li><a href="#" class="fancy-link">الرئيسية</a></li>
+                        <li><a href="#products" class="fancy-link">المنتجات</a></li>
+                        <li><a href="#categories" class="fancy-link">التصنيفات</a></li>
+                        <li><a href="#about" class="fancy-link">من نحن</a></li>
+                        <li><a href="#contact" class="fancy-link">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column fade-in delay-3">
                     <h3>خدمة العملاء</h3>
                     <ul>
-                        <li><a href="#">حسابي</a></li>
-                        <li><a href="#">سجل الطلبات</a></li>
-                        <li><a href="#">سياسة الشحن</a></li>
-                        <li><a href="#">سياسة الإرجاع</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="fancy-link">حسابي</a></li>
+                        <li><a href="#" class="fancy-link">سجل الطلبات</a></li>
+                        <li><a href="#" class="fancy-link">سياسة الشحن</a></li>
+                        <li><a href="#" class="fancy-link">سياسة الإرجاع</a></li>
+                        <li><a href="#" class="fancy-link">الأسئلة الشائعة</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column fade-in delay-4">
                     <h3>اتصل بنا</h3>
                     <p><i class="fas fa-map-marker-alt"></i> شارع المكتبة، المدينة</p>
                     <p><i class="fas fa-phone"></i> +123 456 7890</p>
@@ -213,7 +249,7 @@
 
     <!-- نافذة تسجيل الدخول -->
     <div class="modal" id="login-modal">
-        <div class="modal-content">
+        <div class="modal-content card">
             <span class="close-modal">&times;</span>
             <div class="tabs">
                 <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
@@ -223,17 +259,17 @@
                 <form id="login-form">
                     <div class="form-group">
                         <label for="login-email">البريد الإلكتروني</label>
-                        <input type="email" id="login-email" required>
+                        <input type="email" id="login-email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="login-password">كلمة المرور</label>
-                        <input type="password" id="login-password" required>
+                        <input type="password" id="login-password" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn">تسجيل الدخول</button>
                     </div>
                     <div class="form-footer">
-                        <a href="#">نسيت كلمة المرور؟</a>
+                        <a href="#" class="fancy-link">نسيت كلمة المرور؟</a>
                     </div>
                 </form>
             </div>
@@ -241,19 +277,19 @@
                 <form id="register-form">
                     <div class="form-group">
                         <label for="register-name">الاسم الكامل</label>
-                        <input type="text" id="register-name" required>
+                        <input type="text" id="register-name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="register-email">البريد الإلكتروني</label>
-                        <input type="email" id="register-email" required>
+                        <input type="email" id="register-email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="register-password">كلمة المرور</label>
-                        <input type="password" id="register-password" required>
+                        <input type="password" id="register-password" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="register-confirm-password">تأكيد كلمة المرور</label>
-                        <input type="password" id="register-confirm-password" required>
+                        <input type="password" id="register-confirm-password" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn">إنشاء حساب</button>
@@ -263,20 +299,13 @@
         </div>
     </div>
 
-    <!-- نافذة تفاصيل المنتج -->
-    <div class="modal" id="product-modal">
-        <div class="modal-content product-modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="product-detail" id="product-detail">
-                <!-- سيتم تحميل تفاصيل المنتج هنا عبر جافاسكريبت -->
-                <div class="loading">جاري تحميل تفاصيل المنتج...</div>
-            </div>
-        </div>
-    </div>
-
     <!-- الطبقة الشفافة -->
     <div class="overlay" id="overlay"></div>
 
-    <script src="script.js"></script>
+    <!-- JavaScript files -->
+    <script src="js/products.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/theme-switcher.js"></script>
+    <script src="js/effects.js"></script>
 </body>
 </html>
