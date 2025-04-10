@@ -3,120 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نوڤا ستور | متجرك الإلكتروني الفاخر</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/themes/dark-theme.css" id="theme-style">
+    <title>متجر الكتب الإلكتروني</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="dark-theme">
-    <!-- شريط التنقل الذكي -->
-    <nav class="smart-nav">
-        <div class="nav-container">
+<body>
+    <header>
+        <div class="container">
             <div class="logo">
-                <span class="logo-icon">🛍️</span>
-                <h1>نوڤا ستور</h1>
+                <h1>متجر الكتب</h1>
             </div>
-            <div class="nav-links">
-                <a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a>
-                <a href="products.html"><i class="fas fa-store"></i> المتجر</a>
-                <a href="#"><i class="fas fa-heart"></i> المفضلة</a>
-                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
-                <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">الرئيسية</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#categories">التصنيفات</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن كتاب...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-icon">
+                    <a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="user-icon">
+                    <a href="#" id="login-btn"><i class="fas fa-user"></i></a>
+                </div>
             </div>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section مع تأثيرات Parallax -->
-    <section class="hero-section">
-        <div class="hero-content animate__animated animate__fadeIn">
-            <h2 class="hero-title">اكتشف عالمًا من الإبداع</h2>
-            <p class="hero-subtitle">أحدث المنتجات بأفضل الأسعار</p>
-            <div class="search-bar">
-                <input type="text" placeholder="ابحث عن منتج...">
-                <button><i class="fas fa-search"></i></button>
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h2>أفضل الكتب بين يديك</h2>
+                <p>اكتشف مجموعة واسعة من الكتب في مختلف المجالات بأسعار تنافسية</p>
+                <a href="#product" class="btn">تسوق الآن</a>
             </div>
-            <button class="cta-button pulse">تسوق الآن</button>
         </div>
-        <div class="hero-overlay"></div>
+    </div>
+
+    <section id="featured-products" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>الكتب المميزة</h2>
+                <p>اكتشف أفضل الكتب مبيعاً</p>
+            </div>
+            <div class="products-grid" id="featured-products-grid">
+                <!-- سيتم تحميل المنتجات هنا عبر جافاسكريبت -->
+                <div class="loading">جاري تحميل المنتجات...</div>
+            </div>
+        </div>
     </section>
 
-    <!-- فئات المنتجات -->
-    <section class="categories-section">
-        <h2 class="section-title">تصفح حسب الفئة</h2>
-        <div class="categories-grid">
-            <div class="category-card hover-effect">
-                <img src="assets/images/electronics.jpg" alt="إلكترونيات">
-                <div class="category-info">
-                    <h3>الإلكترونيات</h3>
-                    <button class="category-btn">استكشف <i class="fas fa-arrow-left"></i></button>
+    <section id="categories" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>تصفح حسب التصنيف</h2>
+                <p>اختر من بين مجموعة متنوعة من التصنيفات</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x200" alt="كتب علمية">
+                    <h3>كتب علمية</h3>
+                    <a href="#" class="btn-small">عرض الكل</a>
                 </div>
-            </div>
-            <!-- يمكن إضافة المزيد من الفئات هنا -->
-        </div>
-    </section>
-
-    <!-- المنتجات المميزة مع تأثيرات Hover -->
-    <section class="featured-products">
-        <h2 class="section-title">منتجات مميزة</h2>
-        <div class="products-grid" id="featuredProducts">
-            <!-- سيتم تعبئتها بالجافاسكريبت -->
-        </div>
-    </section>
-
-    <!-- قسم العروض الخاصة مع مؤقت تنازلي -->
-    <section class="special-offers">
-        <h2 class="section-title">عروض خاصة</h2>
-        <div class="offer-timer">
-            <p>ينتهي العرض خلال:</p>
-            <div class="timer">
-                <span id="hours">24</span>:<span id="minutes">59</span>:<span id="seconds">59</span>
-            </div>
-        </div>
-        <div class="offer-products">
-            <!-- سيتم تعبئتها بالجافاسكريبت -->
-        </div>
-    </section>
-
-    <!-- تذييل الصفحة -->
-    <footer class="smart-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>روابط سريعة</h3>
-                <ul>
-                    <li><a href="#">عن المتجر</a></li>
-                    <li><a href="#">الشروط والأحكام</a></li>
-                    <li><a href="#">سياسة الخصوصية</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>وسائل التواصل</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x200" alt="روايات">
+                    <h3>روايات</h3>
+                    <a href="#" class="btn-small">عرض الكل</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x200" alt="كتب أطفال">
+                    <h3>كتب أطفال</h3>
+                    <a href="#" class="btn-small">عرض الكل</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x200" alt="تطوير الذات">
+                    <h3>تطوير الذات</h3>
+                    <a href="#" class="btn-small">عرض الكل</a>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 نوڤا ستور. جميع الحقوق محفوظة.</p>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>جميع الكتب</h2>
+                <p>تصفح مجموعتنا الكاملة من الكتب</p>
+            </div>
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="category-filter">التصنيف:</label>
+                    <select id="category-filter">
+                        <option value="">جميع التصنيفات</option>
+                        <option value="science">كتب علمية</option>
+                        <option value="novels">روايات</option>
+                        <option value="children">كتب أطفال</option>
+                        <option value="self-development">تطوير الذات</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-by">ترتيب حسب:</label>
+                    <select id="sort-by">
+                        <option value="price-asc">السعر: من الأقل إلى الأعلى</option>
+                        <option value="price-desc">السعر: من الأعلى إلى الأقل</option>
+                        <option value="name-asc">الاسم: أ-ي</option>
+                        <option value="name-desc">الاسم: ي-أ</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="all-products-grid">
+                <!-- سيتم تحميل المنتجات هنا عبر جافاسكريبت -->
+                <div class="loading">جاري تحميل المنتجات...</div>
+            </div>
+            <div class="pagination">
+                <button id="prev-page" disabled><i class="fas fa-chevron-right"></i> السابق</button>
+                <span id="page-info">صفحة 1 من 1</span>
+                <button id="next-page">التالي <i class="fas fa-chevron-left"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>اشترك في نشرتنا البريدية</h2>
+                <p>احصل على تحديثات حول الكتب الجديدة والعروض الخاصة</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="بريدك الإلكتروني" required>
+                    <button type="submit" class="btn">اشترك</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>متجر الكتب</h3>
+                    <p>وجهتك الأولى للحصول على أفضل الكتب بأسعار مناسبة.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#categories">التصنيفات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">حسابي</a></li>
+                        <li><a href="#">سجل الطلبات</a></li>
+                        <li><a href="#">سياسة الشحن</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> شارع المكتبة، المدينة</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@bookstore.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 متجر الكتب. جميع الحقوق محفوظة.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- عناصر إضافية -->
-    <div class="floating-cart-btn">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge">0</span>
+    <!-- سلة التسوق الجانبية -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- سيتم تحميل عناصر السلة هنا عبر جافاسكريبت -->
+            <p class="empty-cart">سلة التسوق فارغة</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-amount">0.00 ريال</span>
+            </div>
+            <button class="btn checkout-btn" id="checkout-btn">إتمام الشراء</button>
+        </div>
     </div>
 
-    <div class="notification-box"></div>
+    <!-- نافذة تسجيل الدخول -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
+                <button class="tab-btn" data-tab="register">إنشاء حساب</button>
+            </div>
+            <div class="tab-content active" id="login">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">كلمة المرور</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">تسجيل الدخول</button>
+                    </div>
+                    <div class="form-footer">
+                        <a href="#">نسيت كلمة المرور؟</a>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-content" id="register">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">الاسم الكامل</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">كلمة المرور</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">إنشاء حساب</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/theme-switcher.js"></script>
+    <!-- نافذة تفاصيل المنتج -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content product-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-detail" id="product-detail">
+                <!-- سيتم تحميل تفاصيل المنتج هنا عبر جافاسكريبت -->
+                <div class="loading">جاري تحميل تفاصيل المنتج...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الطبقة الشفافة -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
